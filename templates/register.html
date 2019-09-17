@@ -1,0 +1,114 @@
+<!--<html>
+<title>Register</title>
+<body>
+<form action="register" method="post">
+{% csrf_token %}
+
+First Name : <input type="text" name="first_name" placeholder="first name"><br>
+Last Name : <input type="text" name="last_name" placeholder="last name"><br>
+Username : <input type="text" name="username" placeholder="username"><br>
+Emailid : <input type="email" name="email" placeholder="email"><br>
+Password : <input type="password" name="pass1" placeholder="password"><br>
+Confrim Password : <input type="password" name="pass2" placeholder="confirm password"><br>
+<input type="submit" value="Register">
+</form>
+<div>
+{%for message in messages %}
+<h3>{{message}}</h3>
+{%endfor%}
+</div>
+</body>
+</html>
+-->
+
+
+{% load static%}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Register</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="{% static 'fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="image-holder">
+				<img src="{% static 'images/destination_8.jpg' %}" alt="">
+			</div>
+			<div class="form-inner">
+				<form action="register" method="POST">
+				{% csrf_token %}
+					<div class="form-header">
+						<h3>Sign up</h3>
+						<img src="{% static 'images/sign-up.png' %}" alt="" class="sign-up-icon">
+					</div>
+					<div class="form-group">
+						<label for="">First Name:</label>
+						<input type="text" class="form-control" data-validation="length alphanumeric" data-validation-length="3-12" name="first_name">
+					</div>
+					<div class="form-group">
+						<label for="">Last Name:</label>
+						<input type="text" class="form-control" data-validation="length alphanumeric" data-validation-length="3-12" name="last_name">
+					</div>
+					<div class="form-group">
+						<label for="">Username:</label>
+						<input type="text" class="form-control" data-validation="length alphanumeric" data-validation-length="3-12" name="username">
+					</div>
+					<div class="form-group">
+						<label for="">E-mail:</label>
+						<input type="text" class="form-control" data-validation="email" name="email">
+					</div>
+					<div class="form-group" >
+						<label for="">Password:</label>
+						<input type="password" class="form-control" data-validation="length" data-validation-length="min8" name="pass1">
+					</div>
+					<div class="form-group">
+						<label for="">Confirm Password:</label>
+						<input type="password" class="form-control" data-validation="length alphanumeric" data-validation-length="3-12" name="pass2">
+					</div>
+					<div class="form-group">
+						<label for=""></label>
+						<input type="submit" class="form-control" data-validation="length alphanumeric" data-validation-length="3-12" value="Register">
+					</div>
+					<div class="socials">
+						<p>Sign up with social platforms</p>
+						<a href="" class="socials-icon">
+							<i class="zmdi zmdi-facebook"></i>
+						</a>
+						<a href="" class="socials-icon">
+							<i class="zmdi zmdi-instagram"></i>
+						</a>
+						<a href="" class="socials-icon">
+							<i class="zmdi zmdi-twitter"></i>
+						</a>
+						<a href="" class="socials-icon">
+							<i class="zmdi zmdi-tumblr"></i>
+						</a>
+					</div>
+				</form>
+				<div>
+                    {%for message in messages %}
+					<script>
+					    window.alert("{{message}}")
+					</script>
+					{%endfor%}
+					
+				</div>
+			</div>
+			
+		</div>
+		
+		<script src=" {% static 'js/jquery-3.3.1.min.js' %}"></script>
+		<script src=" {% static 'js/jquery.form-validator.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
